@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My Application"
-include ':ActivityLifecycle'
+rootProject.name = "lesson2"
+include ':app'
