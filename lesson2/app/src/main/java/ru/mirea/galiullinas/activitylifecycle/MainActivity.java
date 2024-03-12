@@ -6,14 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
-
-	/*
-		Ответы на вопросы:
-		1. Будет ли вызван метод «onCreate» после нажатия на кнопку «Home» и возврата в приложение? - Нет
-		2. Изменится ли значение поля «EditText» после нажатия на кнопку «Home» и возврата в приложение? - Нет
-		3. Изменится ли значение поля «EditText» после нажатия на кнопку «Back» и возврата в приложение? - Нет
-	*/
-
+    
     private String TAG = MainActivity.class.getSimpleName();
 
     @Override
