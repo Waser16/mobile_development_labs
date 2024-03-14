@@ -17,3 +17,4 @@ rootProject.name = "lesson2"
 include ':ActivityLifecycle'
 include ':multiactivity'
 include ':intentfilter'
+include ':toastapp'
