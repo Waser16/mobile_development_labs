@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ActivityLifecycle" />
+            <option value="$PROJECT_DIR$/intentfilter" />
             <option value="$PROJECT_DIR$/multiactivity" />
           </set>
         </option>
