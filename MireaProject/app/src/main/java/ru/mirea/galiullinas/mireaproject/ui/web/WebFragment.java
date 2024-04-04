@@ -29,9 +29,9 @@ public class WebFragment extends Fragment {
 
         binding = FragmentWebBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        binding.webView.setWebViewClient(new WebViewClient());
-        binding.webView.loadUrl("https://www.google.ru/");
         binding.webView.getSettings().setJavaScriptEnabled(true);
+        binding.webView.setWebViewClient(new WebViewClient());
+        binding.webView.loadUrl("https://www.mirea.ru/");
         return root;
     }
 

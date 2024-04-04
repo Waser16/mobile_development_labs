@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.data.DataFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="5dp"
+        android:text="Применение искусственного интеллекта на финансовом рынке: доклад Банка России"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="5dp"
+        android:text="Сегодня компании активно внедряют в свои бизнес-процессы искусственный интеллект (ИИ). Это ведет к трансформации как отдельных операций, так и всего рынка. Чем ИИ может быть полезен в сфере финансов, какие существуют риски его применения, как регулируют ИИ в мировой практике и какой подход может быть использован для российского финансового рынка — эти и другие вопросы Банк России поднимает в консультативном докладе."
+        android:textAlignment="viewStart"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="5dp"
+        android:text="Все большее распространение, считают авторы, получает генеративный ИИ. Он способен по запросам пользователя создавать новый контент — текст, изображение, аудио и видео. Эта технология может снижать издержки, ускорять обработку данных, применяться в оценке платежеспособности клиентов, инвестиционном консультировании, противодействии мошенничеству и других сферах. Но компаниям необходимо учитывать риски, которые могут возникать при использовании ИИ. Среди них выделяют риски технологического и экономического характера, а также в области этики и информационной безопасности."
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        app:fontFamily="sans-serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
