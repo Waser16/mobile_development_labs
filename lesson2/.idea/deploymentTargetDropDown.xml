@@ -2,10 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="ActivityLifecycle">
-        <State />
-      </entry>
-      <entry key="app">
+      <entry key="cycle">
         <State />
       </entry>
       <entry key="dialog">
