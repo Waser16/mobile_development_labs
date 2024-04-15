@@ -8,9 +8,19 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Последовательность процессов: \n1. Сначала экран чист
+                    \n2. Сразу же начинается 2 секунды сна, после которых запускается RUN_1, чье название мы видим благодаря последующему TimeUnit.SECONDS.sleep(1);
+                    \n3. Спустя указаннаю секунду сна запускается RUN_2.
+                    \n4. RUN_3 запускается последним, немсотря на то, что в коде он был раньше RUN_2. Это из-за запуска с задержкой 2000 миллисекунд
+                    \nrunOnUiThread - Позволяет запускать код в главном (UI) потоке
+                    \npost - добавляет задачу в очередь
+                    \npostDelayed - добавляет задачу в очередь, только запускает ее через указанный промежуток времени"
+        android:maxLines="10"
+        android:lines="10"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
