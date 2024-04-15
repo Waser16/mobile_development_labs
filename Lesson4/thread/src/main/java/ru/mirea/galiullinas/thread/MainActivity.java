@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         int numberThread = counter++;
                         Log.d("ThreadProject",
                                 String.format("Запущен поток № %d студентом группы № %s номер по списку № %d ",
-                                numberThread, "БСБО-10-21", -1));
+                                numberThread, "БСБО-10-21", 5));
                         long endTime = System.currentTimeMillis() + 20 * 1000;
                         while (System.currentTimeMillis() < endTime) {
                             synchronized (this) {
