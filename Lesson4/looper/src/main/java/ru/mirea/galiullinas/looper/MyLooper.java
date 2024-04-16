@@ -20,6 +20,7 @@ public class MyLooper extends  Thread {
         mHandler = new Handler(Looper.myLooper()) {
             public void handleMessage(Message msg) {
                 String data = msg.getData().getString("KEY");
+                int age = msg.getData().getInt("age");
                 Log.d("MyLooper get message: ", data);
                 int count = data.length();
                 Message message = new Message();
@@ -27,7 +28,12 @@ public class MyLooper extends  Thread {
                 bundle.putString("result", String.format("The number of letters in the word %s is %d ", data, count));
                 message.setData(bundle);
 // Send the message back to main thread message queue use main thread message Handler.
-                mainHandler.sendMessage(message);
+                mainHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mainHandler.sendMessage(message);
+                    }
+                }, age);
             }
         };
         Looper.loop();
