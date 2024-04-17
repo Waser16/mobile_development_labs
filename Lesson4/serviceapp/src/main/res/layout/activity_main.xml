@@ -7,13 +7,83 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/cardview_dark_background"
+        >
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:minHeight="40sp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:textColor="@color/cardview_light_background"
+                android:text="From Album \n'Kasabian'"
+                android:textAlignment="center"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="400dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="50dp"
+                tools:srcCompat="@drawable/kasabian" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="100dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Underdog"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/btnPlay"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/player_play" />
+
+            <ImageView
+                android:id="@+id/btnPause"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/player_stop" />
+
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
