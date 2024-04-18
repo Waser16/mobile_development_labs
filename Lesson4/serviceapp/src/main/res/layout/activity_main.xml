@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/player_color"
     tools:context=".MainActivity">
 
-
     <TableLayout
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/cardview_dark_background"
         >
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="92dp"
-            android:minHeight="40sp">
+            android:minHeight="60sp">
 
             <TextView
                 android:id="@+id/textView2"
@@ -31,7 +29,7 @@
                 android:layout_weight="1"
                 android:textSize="20dp"
                 android:textColor="@color/cardview_light_background"
-                android:text="From Album \n'Kasabian'"
+                android:text="From Album \n'West Ryder Pauper Lunatic Asylum '"
                 android:textAlignment="center"
                 />
         </TableRow>
@@ -39,29 +37,30 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:minHeight="400dp">
+            android:minHeight="450dp">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="400dp"
-                android:layout_height="400dp"
+                android:layout_width="450dp"
+                android:layout_height="450dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:padding="50dp"
-                tools:srcCompat="@drawable/kasabian" />
+                android:padding="30dp"
+                app:srcCompat="@drawable/kasabian" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:minHeight="100dp">
+            android:minHeight="80dp">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Underdog"
+                android:textAlignment="center"
+                android:text="Underdog\nKasabian"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="20dp" />
 
@@ -69,21 +68,32 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:minHeight="100dp">
+
+            <ImageButton
+                android:id="@+id/btnPrev"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                app:srcCompat="@drawable/player_track_prev" />
 
             <ImageView
-                android:id="@+id/btnPlay"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/btnPlayPause"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/player_play" />
 
-            <ImageView
-                android:id="@+id/btnPause"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+            <ImageButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/player_stop" />
+                android:background="@null"
+                app:srcCompat="@drawable/player_track_next" />
+
 
         </TableRow>
     </TableLayout>

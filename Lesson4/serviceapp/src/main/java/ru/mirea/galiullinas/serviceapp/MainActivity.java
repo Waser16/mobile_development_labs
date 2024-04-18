@@ -3,6 +3,7 @@ package ru.mirea.galiullinas.serviceapp;
 import static android.Manifest.permission.FOREGROUND_SERVICE;
 import static android.Manifest.permission.POST_NOTIFICATIONS;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,12 +19,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.concurrent.TimeUnit;
+
 import ru.mirea.galiullinas.serviceapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     private int permissionCode = 200;
+    private boolean playing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,20 +43,37 @@ public class MainActivity extends AppCompatActivity {
                     permissionCode);
         }
 
-        binding.btnPlay.setOnClickListener(new View.OnClickListener() {
+        binding.btnPlayPause.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UseCompatLoadingForDrawables")
             @Override
-            public void onClick(View v) {
-                Intent serviceIntent = new Intent(MainActivity.this, PlayerService.class);
-                ContextCompat.startForegroundService(MainActivity.this, serviceIntent);
+            public	void	onClick(View	v)	{
+                if (playing) {
+                    stopService(
+                            new  Intent(MainActivity.this,  PlayerService.class));
+                } else {
+                    Intent serviceIntent  =  new  Intent(MainActivity.this,  PlayerService.class);
+                    ContextCompat.startForegroundService(MainActivity.this,  serviceIntent);
+                }
+
+                playing = !playing;
+                if (playing) {
+                    binding.btnPlayPause.setImageDrawable(
+                            getResources().getDrawable(R.drawable.player_pause));
+                }
+                else {
+                    binding.btnPlayPause.setImageDrawable(
+                            getResources().getDrawable(R.drawable.player_play));
+                }
             }
         });
 
+        /*
         binding.btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stopService(new Intent(MainActivity.this, PlayerService.class));
             }
         });
-
+        */
     }
 }
