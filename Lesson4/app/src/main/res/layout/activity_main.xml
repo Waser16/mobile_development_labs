@@ -4,88 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/player_color"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="254dp"
-        android:layout_height="37dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
-
-    <ImageView
-        android:id="@+id/trackImage"
-        android:layout_width="340dp"
-        android:layout_height="247dp"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+    <TableLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        >
 
-    <TextView
-        android:id="@+id/trackName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="96dp"
-        android:text="название"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:minHeight="60sp">
 
-    <TextView
-        android:id="@+id/trackAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="автор"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackName"
-        app:layout_constraintVertical_bias="0.064" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:textColor="@color/cardview_light_background"
+                android:text="From Album \n'West Ryder Pauper Lunatic Asylum '"
+                android:textAlignment="center"
+                />
+        </TableRow>
 
-    <ImageButton
-        android:id="@+id/stopButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="stop"
-        app:layout_constraintBottom_toTopOf="@+id/trackName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.333"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="450dp">
 
-    <ImageButton
-        android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548"
-        app:srcCompat="@android:drawable/ic_media_next" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="450dp"
+                android:layout_height="450dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="30dp"
+                app:srcCompat="@drawable/kasabian" />
+        </TableRow>
 
-    <ImageButton
-        android:id="@+id/prevButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="prev"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar"
-        app:layout_constraintHorizontal_bias="0.318"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548"
-        app:srcCompat="@android:drawable/ic_media_previous" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="80dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Underdog\nKasabian"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="100dp">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                app:srcCompat="@drawable/player_track_prev" />
+
+            <ImageView
+                android:id="@+id/imageButton2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/player_play" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                app:srcCompat="@drawable/player_track_next" />
+
+
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
