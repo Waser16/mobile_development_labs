@@ -24,5 +24,9 @@
             android:id="@+id/nav_data"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_data" />
+        <item
+            android:id="@+id/nav_worker"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_worker" />
     </group>
 </menu>
