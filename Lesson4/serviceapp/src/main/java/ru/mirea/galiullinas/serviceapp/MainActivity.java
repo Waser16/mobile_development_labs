@@ -66,14 +66,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        /*
-        binding.btnPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stopService(new Intent(MainActivity.this, PlayerService.class));
-            }
-        });
-        */
     }
 }
