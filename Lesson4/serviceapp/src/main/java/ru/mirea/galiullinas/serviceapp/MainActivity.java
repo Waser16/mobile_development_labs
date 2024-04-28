@@ -48,11 +48,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public	void	onClick(View	v)	{
                 if (playing) {
-                    stopService(
-                            new  Intent(MainActivity.this,  PlayerService.class));
+                    stopService(new Intent(MainActivity.this,  PlayerService.class));
                 } else {
-                    Intent serviceIntent  =  new  Intent(MainActivity.this,  PlayerService.class);
-                    ContextCompat.startForegroundService(MainActivity.this,  serviceIntent);
+                    Intent serviceIntent = new Intent(MainActivity.this, PlayerService.class);
+                    ContextCompat.startForegroundService(MainActivity.this, serviceIntent);
                 }
 
                 playing = !playing;

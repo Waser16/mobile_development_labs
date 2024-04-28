@@ -25,15 +25,15 @@ public class MainActivity extends AppCompatActivity {
                         .build();
         WorkManager.getInstance(this).enqueue(uploadWorkRequest);
 
-        Constraints constraints = new Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.UNMETERED)
-                .setRequiresCharging(true)
-                .build();
-
-        uploadWorkRequest =
-                new OneTimeWorkRequest.Builder(UploadWorker.class)
-                        .setConstraints(constraints)
-                        .build();
+//        Constraints constraints = new Constraints.Builder()
+//                .setRequiredNetworkType(NetworkType.UNMETERED)
+//                .setRequiresCharging(true)
+//                .build();
+//
+////        uploadWorkRequest =
+////                new OneTimeWorkRequest.Builder(UploadWorker.class)
+////                        .setConstraints(constraints)
+////                        .build();
 
     }
 }
