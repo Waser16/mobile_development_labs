@@ -37,4 +37,9 @@
         android:name="ru.mirea.galiullinas.mireaproject.ui.worker.WorkerFragment"
         android:label="Worker   "
         tools:layout="@layout/fragment_worker" />
+    <fragment
+        android:id="@+id/nav_microphone"
+        android:name="ru.mirea.galiullinas.mireaproject.ui.microphone.MicrophoneFragment"
+        android:label="fragment_microphone"
+        tools:layout="@layout/fragment_microphone" />
 </navigation>

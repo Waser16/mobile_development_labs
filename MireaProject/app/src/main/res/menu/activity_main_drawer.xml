@@ -28,5 +28,9 @@
             android:id="@+id/nav_worker"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_worker" />
+        <item
+            android:id="@+id/nav_microphone"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_microphone" />
     </group>
 </menu>
