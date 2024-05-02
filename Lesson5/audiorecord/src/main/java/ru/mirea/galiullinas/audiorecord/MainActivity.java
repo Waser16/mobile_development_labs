@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private Button playButton = null;
     private MediaRecorder recorder = null;
     private MediaPlayer player = null;
-    boolean isStartRecording = true;
-    boolean isStartPlaying = true;
+    boolean isRecording = true;
+    boolean isPlaying = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,32 +64,32 @@ public class MainActivity extends AppCompatActivity {
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isStartRecording) {
-                    recordButton.setText("Stop recording");
+                if(isRecording) {
+                    recordButton.setText("Остановить запись");
                     playButton.setEnabled(false);
                     startRecording();
                 } else {
-                    recordButton.setText("Start recording");
+                    recordButton.setText("Начать запись");
                     playButton.setEnabled(true);
                     stopRecording();
                 }
-                isStartRecording = !isStartRecording;
+                isRecording = !isRecording;
             }
         });
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isStartPlaying) {
-                    playButton.setText("Stop playing");
+                if(isPlaying) {
+                    playButton.setText("Остановить проигрывание");
                     recordButton.setEnabled(false);
                     startPlaying();
                 } else {
-                    playButton.setText("Start playing");
+                    playButton.setText("Начать проигрывание");
                     recordButton.setEnabled(true);
                     stopPlaying();
                 }
-                isStartPlaying = !isStartPlaying;
+                isPlaying = !isPlaying;
             }
         });
     }
