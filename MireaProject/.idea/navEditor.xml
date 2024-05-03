@@ -8,18 +8,6 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="microphoneFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="685" />
-                            <option name="y" value="-5" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="nav_data">
                     <value>
                       <LayoutPositions>
@@ -45,6 +33,18 @@
                     </value>
                   </entry>
                   <entry key="nav_home">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="nav_microphone">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -87,6 +87,18 @@
                           <Point>
                             <option name="x" value="500" />
                             <option name="y" value="368" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="sensorFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="674" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>

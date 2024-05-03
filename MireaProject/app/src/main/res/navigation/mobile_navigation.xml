@@ -40,6 +40,11 @@
     <fragment
         android:id="@+id/nav_microphone"
         android:name="ru.mirea.galiullinas.mireaproject.ui.microphone.MicrophoneFragment"
-        android:label="fragment_microphone"
+        android:label="Microphone"
         tools:layout="@layout/fragment_microphone" />
+    <fragment
+        android:id="@+id/nav_sensor"
+        android:name="ru.mirea.galiullinas.mireaproject.ui.sensor.SensorFragment"
+        android:label="Sensor"
+        tools:layout="@layout/fragment_sensor" />
 </navigation>

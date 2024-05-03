@@ -32,5 +32,9 @@
             android:id="@+id/nav_microphone"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_microphone" />
+        <item
+            android:id="@+id/nav_sensor"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_sensor" />
     </group>
 </menu>
