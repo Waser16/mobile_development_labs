@@ -36,5 +36,9 @@
             android:id="@+id/nav_sensor"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_sensor" />
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_camera" />
     </group>
 </menu>

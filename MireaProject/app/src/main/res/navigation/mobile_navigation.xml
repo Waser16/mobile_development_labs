@@ -47,4 +47,9 @@
         android:name="ru.mirea.galiullinas.mireaproject.ui.sensor.SensorFragment"
         android:label="Sensor"
         tools:layout="@layout/fragment_sensor" />
+    <fragment
+        android:id="@+id/nav_camera"
+        android:name="ru.mirea.galiullinas.mireaproject.ui.camera.CameraFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_camera" />
 </navigation>
