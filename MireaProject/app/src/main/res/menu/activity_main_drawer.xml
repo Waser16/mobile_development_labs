@@ -44,5 +44,9 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_profile" />
+        <item
+            android:id="@+id/nav_filework"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_filework" />
     </group>
 </menu>
