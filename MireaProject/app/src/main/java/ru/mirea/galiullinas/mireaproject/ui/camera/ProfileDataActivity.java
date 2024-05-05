@@ -6,13 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import ru.mirea.galiullinas.mireaproject.R;
 
@@ -28,9 +23,9 @@ public class ProfileDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_data);
 
-        editTextName = findViewById(R.id.editTextName);
-        editTextAge = findViewById(R.id.editTextAge);
-        editTextAbout = findViewById(R.id.editTextAbout);
+        editTextName = findViewById(R.id.textViewNameResult);
+        editTextAge = findViewById(R.id.textViewAgeResult);
+        editTextAbout = findViewById(R.id.textViewAboutResult);
         button = findViewById(R.id.button);
     }
 

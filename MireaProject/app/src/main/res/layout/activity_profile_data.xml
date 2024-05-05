@@ -8,7 +8,7 @@
     tools:context=".ui.camera.ProfileDataActivity">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewNameLabelResult"
         android:layout_width="62dp"
         android:layout_height="17dp"
         android:layout_marginStart="30dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/textViewNameResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -29,10 +29,10 @@
         android:inputType="text"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameLabelResult" />
 
     <TextView
-        android:id="@+id/textViewAge"
+        android:id="@+id/textViewAgeLabelResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -40,10 +40,10 @@
         android:text="Возраст:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameResult" />
 
     <EditText
-        android:id="@+id/editTextAge"
+        android:id="@+id/textViewAgeResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -53,10 +53,10 @@
         android:inputType="number"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAge" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAgeLabelResult" />
 
     <TextView
-        android:id="@+id/textViewAbout"
+        android:id="@+id/textViewAboutLabelResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -64,10 +64,10 @@
         android:text="О себе:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAgeResult" />
 
     <EditText
-        android:id="@+id/editTextAbout"
+        android:id="@+id/textViewAboutResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -77,7 +77,7 @@
         android:inputType="text"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAbout" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAboutLabelResult" />
 
     <Button
         android:id="@+id/button"

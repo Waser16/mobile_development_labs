@@ -52,4 +52,9 @@
         android:name="ru.mirea.galiullinas.mireaproject.ui.camera.CameraFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="ru.mirea.galiullinas.mireaproject.ui.sharedPreferences.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

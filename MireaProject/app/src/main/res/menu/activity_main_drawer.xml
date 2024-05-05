@@ -40,5 +40,9 @@
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_camera" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_profile" />
     </group>
 </menu>
