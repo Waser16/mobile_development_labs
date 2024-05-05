@@ -28,6 +28,7 @@ import ru.mirea.galiullinas.notebook.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private static final String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
             OutputStreamWriter output = new OutputStreamWriter(fileOutputStream);
             output.write(data);
             output.close();
-            Toast.makeText(getApplicationContext(), "Запись в файл успешно закончена", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Запись в файл успешно закончена", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e) {
-            e.getMessage();
+            Log.d(TAG, "Writing error: " + e.getMessage());
         }
     }
 
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             binding.editTextQuote.setText(String.join("", lines));
         }
         catch (Exception e) {
-            e.getMessage();
+            Log.d(TAG, "Reading error: " + e.getMessage());
         }
     }
 }
