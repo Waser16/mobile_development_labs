@@ -62,7 +62,7 @@ public class FirebaseAuthActivity extends AppCompatActivity {
             binding.authTable.setVisibility(View.GONE);
             binding.signedTable.setVisibility(View.VISIBLE);
             binding.verifyEmailButton.setEnabled(!user.isEmailVerified());
-//            startMainActivity();
+            startMainActivity();
         } else {
             binding.statusTextView.setText(R.string.signed_out);
             binding.detailTextView.setText(null);

@@ -48,5 +48,9 @@
             android:id="@+id/nav_filework"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_filework" />
+        <item
+            android:id="@+id/nav_net_resource"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_net_resource" />
     </group>
 </menu>
