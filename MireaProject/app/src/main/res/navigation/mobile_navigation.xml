@@ -67,4 +67,9 @@
         android:name="ru.mirea.galiullinas.mireaproject.ui.NetResource.NetResourceFragment"
         android:label="Bored API"
         tools:layout="@layout/fragment_net_resourse" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="ru.mirea.galiullinas.mireaproject.ui.map.MapFragment"
+        android:label="OpenStreetMap"
+        tools:layout="@layout/fragment_map" />
 </navigation>

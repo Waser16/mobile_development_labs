@@ -52,5 +52,9 @@
             android:id="@+id/nav_net_resource"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_net_resource" />
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_map" />
     </group>
 </menu>

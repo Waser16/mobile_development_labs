@@ -19,6 +19,7 @@
     <string name="menu_profile">Profile Fragment</string>
     <string name="menu_filework">FileWork Fragment</string>
     <string name="menu_net_resource">Bored Fragment</string>
+    <string name="menu_map">Map Fragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
