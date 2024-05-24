@@ -1,6 +1,5 @@
 package ru.mirea.galiullinas.mireaproject.ui.map;
 
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -8,28 +7,27 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.yandex.mapkit.Animation;
+import com.yandex.mapkit.GeoObject;
 import com.yandex.mapkit.MapKit;
 import com.yandex.mapkit.MapKitFactory;
+import com.yandex.mapkit.layers.GeoObjectTapEvent;
+import com.yandex.mapkit.layers.GeoObjectTapListener;
 import com.yandex.mapkit.layers.ObjectEvent;
 import com.yandex.mapkit.map.CameraPosition;
 import com.yandex.mapkit.map.CompositeIcon;
+import com.yandex.mapkit.map.GeoObjectSelectionMetadata;
 import com.yandex.mapkit.map.IconStyle;
 import com.yandex.mapkit.map.InputListener;
 import com.yandex.mapkit.map.Map;
 import com.yandex.mapkit.map.RotationType;
 import com.yandex.mapkit.mapview.MapView;
 import com.yandex.mapkit.geometry.Point;
-import com.yandex.mapkit.places.panorama.PanoramaService;
 import com.yandex.mapkit.search.Address;
 import com.yandex.mapkit.search.Response;
 import com.yandex.mapkit.search.SearchFactory;
@@ -59,17 +57,18 @@ public class MapActivity extends AppCompatActivity implements
     private final int REQUEST_CODE_PERMISSION = 100;
 
     private SearchManager searchManager;
-    private Session searchSession;
-
+    public Session searchSession;
+    private GeoObjectTapListener tapListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setPermissions();
         MapKitFactory.initialize(this);
+        SearchFactory.initialize(this);  // Добавил инициализацию SearchFactory
         binding = ActivityMapBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setPermissions();
         if (isWork) {
             mapView = binding.mapView;
             mapView.getMap().move(
@@ -79,67 +78,37 @@ public class MapActivity extends AppCompatActivity implements
                     null
             );
 
-            Session.SearchListener searchListener = new Session.SearchListener() {
-                @Override
-                public void onSearchResponse(Response response) {
-                    ToponymObjectMetadata toponymMetadata = response.getCollection().getChildren().stream()
-                            .map(child -> child.getObj().getMetadataContainer().getItem(ToponymObjectMetadata.class))
-                            .filter(Objects::nonNull)
-                            .findFirst()
-                            .orElse(null);
+            loadUserLocationLayer();
 
-                    String street = null;
-                    if (toponymMetadata != null) {
-                        street = toponymMetadata.getAddress().getComponents().stream()
-                                .filter(component -> component.getKinds().contains(Address.Component.Kind.STREET))
-                                .map(Address.Component::getName)
-                                .findFirst()
-                                .orElse("Информация об улице не найдена");
-                    } else {
-                        street = "Информация об улице не найдена";
-                    }
-
-                    Toast.makeText(getApplicationContext(), street, Toast.LENGTH_SHORT).show();
-                }
+            tapListener = new GeoObjectTapListener() {
                 @Override
-                public void onSearchError(Error error) {
+                public boolean onObjectTap(@NonNull GeoObjectTapEvent geoObjectTapEvent) {
+                    GeoObjectSelectionMetadata selectionMetadata = geoObjectTapEvent.getGeoObject()
+                            .getMetadataContainer().getItem(GeoObjectSelectionMetadata.class);
+                    binding.mapView.getMap().selectGeoObject(selectionMetadata.getId(), selectionMetadata.getLayerId());
+                    return false;
                 }
             };
-            InputListener inputListener = new InputListener() {
-                @Override
-                public void onMapTap(@NonNull Map map, @NonNull Point point) {
-                    searchSession = searchManager.submit(point, 10, new SearchOptions(), searchListener);
-                }
+            binding.mapView.getMap().addTapListener(tapListener);
 
-                @Override
-                public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
-
-                }
-            };
-
-            searchManager = SearchFactory.getInstance().createSearchManager(SearchManagerType.ONLINE);
-            mapView.getMap().addInputListener(inputListener);
-
-        }
-        else {
+        } else {
             Toast.makeText(this, "Даны не все разрешения", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void setPermissions() {
         int mapPermissionStatus = ContextCompat.checkSelfPermission(this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION);
+                Manifest.permission.ACCESS_FINE_LOCATION);
         int coarsePermissionStatus = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION);
-        int baclgroundPermissionStatus = ContextCompat.checkSelfPermission(this,
+        int backgroundPermissionStatus = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_BACKGROUND_LOCATION);
-        if(mapPermissionStatus == PackageManager.PERMISSION_GRANTED && coarsePermissionStatus == PackageManager.PERMISSION_GRANTED
-            && baclgroundPermissionStatus == PackageManager.PERMISSION_GRANTED) {
+        if (mapPermissionStatus == PackageManager.PERMISSION_GRANTED && coarsePermissionStatus == PackageManager.PERMISSION_GRANTED
+                && backgroundPermissionStatus == PackageManager.PERMISSION_GRANTED) {
             isWork = true;
         } else {
-            ActivityCompat.requestPermissions(this, new String[]
-                    {android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 100);
         }
     }
@@ -148,7 +117,7 @@ public class MapActivity extends AppCompatActivity implements
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == REQUEST_CODE_PERMISSION) {
+        if (requestCode == REQUEST_CODE_PERMISSION) {
             isWork = grantResults.length > 0 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED;
         }
@@ -171,10 +140,10 @@ public class MapActivity extends AppCompatActivity implements
     @Override
     public void onObjectAdded(@NonNull UserLocationView userLocationView) {
         userLocationLayer.setAnchor(
-                new PointF((float)(mapView.getWidth() * 0.5),
-                        (float)(mapView.getHeight() * 0.5)),
-                new PointF((float)(mapView.getWidth() * 0.5),
-                        (float)(mapView.getHeight() * 0.83)));
+                new PointF((float) (mapView.getWidth() * 0.5),
+                        (float) (mapView.getHeight() * 0.5)),
+                new PointF((float) (mapView.getWidth() * 0.5),
+                        (float) (mapView.getHeight() * 0.83)));
 // При определении направления движения устанавливается следующая иконка
         userLocationView.getArrow().setIcon(ImageProvider.fromResource(
                 this, android.R.drawable.arrow_up_float));
@@ -202,7 +171,7 @@ public class MapActivity extends AppCompatActivity implements
 
     }
 
-    private void loadUserLocationLayer(){
+    private void loadUserLocationLayer() {
         MapKit mapKit = MapKitFactory.getInstance();
         mapKit.resetLocationManagerToDefault();
         userLocationLayer = mapKit.createUserLocationLayer(mapView.getMapWindow());

@@ -25,6 +25,8 @@ import ru.mirea.galiullinas.mireaproject.databinding.FragmentMapBinding;
 public class MapFragment extends Fragment {
 
     private FragmentMapBinding binding;
+    private boolean isWork = false;
+    private int REQUEST_CODE_PERMISSION = 100;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MapFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        setPermissions();
         binding.buttonShowMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,5 +46,22 @@ public class MapFragment extends Fragment {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setPermissions() {
+        int mapPermissionStatus = ContextCompat.checkSelfPermission(requireContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION);
+        int coarsePermissionStatus = ContextCompat.checkSelfPermission(requireContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION);
+        int baclgroundPermissionStatus = ContextCompat.checkSelfPermission(requireContext(),
+                Manifest.permission.ACCESS_BACKGROUND_LOCATION);
+        if(mapPermissionStatus == PackageManager.PERMISSION_GRANTED && coarsePermissionStatus == PackageManager.PERMISSION_GRANTED
+                && baclgroundPermissionStatus == PackageManager.PERMISSION_GRANTED) {
+            isWork = true;
+        } else {
+            requestPermissions(new String[]
+                    {android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 100);
+        }
     }
 }
