@@ -8,6 +8,7 @@ public interface AlbumRepository {
     List<Album> getAllAlbums();
     Album getAlbumById(int id);
     List<Album> getAlbumsByTitle(String title);
+    boolean addNewAbum(String title, String author, int release, float price);
     // boolean addAlbumToFavourites(Album album);
 
     //List<Album> getUserFavouriteAlbums(int userId);

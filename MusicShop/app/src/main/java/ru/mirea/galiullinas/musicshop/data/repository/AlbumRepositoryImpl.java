@@ -43,6 +43,14 @@ public class AlbumRepositoryImpl implements AlbumRepository {
         return result;
     }
 
+    @Override
+    public boolean addNewAbum(String title, String author, int release, float price) {
+        Album newAlbun = new Album(this.albums.size() + 1, title,
+                author, release, price);
+        this.albums.add(newAlbun);;
+        return true;
+    }
+
 //    @Override
 //    public boolean addAlbumToFavourites(Album album) {
 //        return false;

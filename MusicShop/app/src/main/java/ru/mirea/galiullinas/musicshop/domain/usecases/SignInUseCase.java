@@ -1,5 +1,7 @@
 package ru.mirea.galiullinas.musicshop.domain.usecases;
 
+import android.text.Editable;
+
 import ru.mirea.galiullinas.musicshop.domain.repository.UserRepository;
 
 public class SignInUseCase {
@@ -12,4 +14,5 @@ public class SignInUseCase {
     public boolean execute(String email, String password) {
         return userRepository.signIn(email, password);
     }
+
 }

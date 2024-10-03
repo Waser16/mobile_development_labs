@@ -34,4 +34,15 @@ public class Album {
     public float getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", price=" + price +
+                "}\n";
+    }
 }
