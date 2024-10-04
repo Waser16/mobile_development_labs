@@ -22,6 +22,7 @@ import ru.mirea.galiullinas.musicshop.domain.models.Album;
 import ru.mirea.galiullinas.musicshop.domain.repository.AlbumRepository;
 import ru.mirea.galiullinas.musicshop.domain.repository.UserRepository;
 import ru.mirea.galiullinas.musicshop.domain.usecases.GetAllAlbumsUseCase;
+import ru.mirea.galiullinas.musicshop.domain.usecases.GetUserFavouriteAlbumsUseCase;
 import ru.mirea.galiullinas.musicshop.domain.usecases.SignInUseCase;
 import ru.mirea.galiullinas.musicshop.domain.usecases.SignUpUseCase;
 
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         TextView signUpResult = binding.textViewSignUpRes;
         Button getAllAlbumsBtn = binding.buttonGetAllAlbums;
         TextView allAlbumsResult = binding.textViewAllAlbums;
+        EditText userIdInput = binding.editTextUserFavouriteAlbums;
+        Button getUserFavouriteAlbumsBtn = binding.buttonGetUsersFavouriteAlbums;
+        TextView userFavouriteAlbumsResult = binding.textViewUserFavouriteAlbums;
 
         signInBtn.setOnClickListener(view -> {
             UserRepository userRepository = new UserRepositoryImpl();
@@ -64,6 +68,16 @@ public class MainActivity extends AppCompatActivity {
             for (Album album : albums) {
                 String albumString = album.toString();
                 allAlbumsResult.append(albumString);
+            }
+        });
+
+        getUserFavouriteAlbumsBtn.setOnClickListener(view -> {
+            UserRepository userRepository = new UserRepositoryImpl();
+            List<Integer> favouriteAlbums = new GetUserFavouriteAlbumsUseCase(userRepository).execute(Integer.parseInt(userIdInput.getText().toString()));
+            userFavouriteAlbumsResult.setText("");
+            for (Integer favourite : favouriteAlbums) {
+                userFavouriteAlbumsResult.append(favourite.toString());
+                userFavouriteAlbumsResult.append("\n");
             }
         });
     }
